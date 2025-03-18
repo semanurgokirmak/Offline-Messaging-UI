@@ -1,0 +1,38 @@
+@import '../variables';
+@import '../mixins';
+
+.message-input {
+    padding: $spacer;
+    background-color: $white;
+    border-top: $border-width solid $gray-300;
+
+    .input-group {
+        .form-control {
+            border-right: none;
+            padding: $spacer * 0.75;
+
+            &:focus {
+                box-shadow: none;
+                border-color: $primary-color;
+
+                +.input-group-append .btn {
+                    border-color: $primary-color;
+                }
+            }
+        }
+
+        .btn {
+            background-color: $primary-color;
+            color: $white;
+            padding: $spacer * 0.5 $spacer;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+
+            .icon {
+                margin-right: $spacer * 0.25;
+            }
+        }
+    }
+}

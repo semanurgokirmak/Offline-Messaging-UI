@@ -1,0 +1,96 @@
+@import '../variables';
+@import '../mixins';
+
+.chat-list {
+    height: 100%;
+    background-color: $white;
+    border-right: $border-width solid $gray-300;
+
+    &-header {
+        padding: $spacer;
+        border-bottom: $border-width solid $gray-300;
+
+        h5 {
+            margin-bottom: 0;
+            font-weight: 600;
+
+            .icon {
+                margin-right: $spacer * 0.5;
+                color: $primary-color;
+            }
+        }
+    }
+
+    &-body {
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    &-item {
+        @include flex(row, flex-start, center);
+        padding: $spacer * 0.75;
+        border-bottom: $border-width solid $gray-300;
+        cursor: pointer;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $gray-100;
+        }
+
+        &.active {
+            background-color: rgba($primary-color, 0.1);
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: $spacer * 0.75;
+            object-fit: cover;
+        }
+
+        .content {
+            @include flex(column);
+            flex: 1;
+            min-width: 0;
+
+            .header {
+                @include flex(row, space-between, center);
+                margin-bottom: $spacer * 0.25;
+
+                .name {
+                    margin: 0;
+                    font-weight: 600;
+                    font-size: $font-size-base;
+                }
+
+                .time {
+                    font-size: $font-size-sm;
+                    color: $gray-600;
+                }
+            }
+
+            .message {
+                @include flex(row, space-between, center);
+
+                p {
+                    margin: 0;
+                    @include text-truncate;
+                    color: $gray-600;
+                    font-size: $font-size-sm;
+                    max-width: 150px;
+                }
+
+                .badge {
+                    background-color: $success-color;
+                    color: $white;
+                    font-size: $font-size-sm * 0.8;
+                    padding: $spacer * 0.25 $spacer * 0.4;
+                    border-radius: 50%;
+                    min-width: 20px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

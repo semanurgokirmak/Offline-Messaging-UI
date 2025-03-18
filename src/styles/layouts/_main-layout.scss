@@ -1,0 +1,78 @@
+@import '../variables';
+@import '../mixins';
+
+.main-layout {
+    @include flex(row);
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    &-mobile-back {
+        display: none;
+        margin-right: $spacer * 0.5;
+
+        @include respond-to(xs) {
+            display: inline-block;
+        }
+
+        @include respond-to(sm) {
+            display: inline-block;
+        }
+    }
+}
+
+@include respond-to(xs) {
+    .main-layout {
+        .chat-list-container {
+            width: 100%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        .chat-window-container {
+            width: 100%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        .profile-sidebar-container {
+            width: 100%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+    }
+}
+
+@include respond-to(sm) {
+    .main-layout {
+        .chat-list-container {
+            width: 40%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        .chat-window-container {
+            width: 60%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        .profile-sidebar-container {
+            width: 100%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+    }
+}

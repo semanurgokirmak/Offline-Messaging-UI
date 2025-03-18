@@ -1,0 +1,135 @@
+@import '../variables';
+@import '../mixins';
+
+.chat-window {
+    @include flex(column);
+    flex: 1;
+    height: 100%;
+
+    &-header {
+        padding: $spacer;
+        background-color: $white;
+        border-bottom: $border-width solid $gray-300;
+        @include flex(row, space-between, center);
+
+        .user-info {
+            @include flex(row, flex-start, center);
+            cursor: pointer;
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: $spacer * 0.5;
+            }
+
+            h5 {
+                margin: 0;
+                font-weight: 600;
+            }
+        }
+
+        .search {
+            @include flex(row, center, center);
+
+            .input-group {
+                max-width: 300px;
+
+                input {
+                    border-right: none;
+                    font-size: $font-size-sm;
+                }
+
+                .btn {
+                    border-color: #ced4da;
+                    background-color: $white;
+
+                    &:hover {
+                        background-color: $gray-100;
+                    }
+
+                    &.btn-danger {
+                        color: $danger-color;
+
+                        &:hover {
+                            background-color: rgba($danger-color, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-body {
+        flex: 1;
+        padding: $spacer;
+        background-color: $gray-100;
+        overflow-y: auto;
+
+        .message {
+            margin-bottom: $spacer;
+            max-width: 75%;
+
+            &-content {
+                padding: $spacer * 0.75;
+                border-radius: $border-radius-lg;
+                @include box-shadow(1);
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            &-time {
+                font-size: $font-size-sm;
+                margin-top: $spacer * 0.25;
+                color: $gray-600;
+            }
+
+            &.sent {
+                margin-left: auto;
+                text-align: right;
+
+                .message-content {
+                    background-color: $sent-message-bg;
+                    color: $sent-message-text;
+                    border-bottom-right-radius: 0;
+                }
+            }
+
+            &.received {
+                margin-right: auto;
+                text-align: left;
+
+                .message-content {
+                    background-color: $received-message-bg;
+                    color: $received-message-text;
+                    border-bottom-left-radius: 0;
+                }
+            }
+        }
+
+        .search-result-highlight {
+            background-color: rgba($warning-color, 0.4);
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        .no-results {
+            @include flex(column, center, center);
+            height: 100%;
+            text-align: center;
+            color: $gray-600;
+        }
+    }
+
+    .empty-state {
+        @include flex(column, center, center);
+        height: 100%;
+        background-color: $gray-100;
+
+        p {
+            color: $gray-600;
+        }
+    }
+}

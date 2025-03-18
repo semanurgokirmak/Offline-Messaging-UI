@@ -1,0 +1,11 @@
+@import 'bootstrap/scss/bootstrap';
+
+@import './variables';
+@import './mixins';
+
+@import './components/chat-list';
+@import './components/chat-window';
+@import './components/message-input';
+@import './components/profile-sidebar';
+
+@import './layouts/main-layout';
