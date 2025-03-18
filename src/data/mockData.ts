@@ -1,4 +1,4 @@
-import { User, Chat, Message, Group } from '../types';
+import { User, Chat, Message} from '../types';
 export const users: User[] = [
     {
       id: '1',
